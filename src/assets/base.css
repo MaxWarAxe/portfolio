@@ -1,0 +1,14 @@
+@font-face{
+    font-family: "firaCode";
+    src: url('./fonts/FiraCode-Regular.ttf');
+}
+
+:root{
+    --back-bg: #020618;
+    --stroke: #314158;
+    --text: #90A1B9;
+    --text-selected: #F8FAFC;
+    --bg-color: #0F172B;
+    --indigo: #615FFF;
+}
+
