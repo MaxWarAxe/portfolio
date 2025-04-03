@@ -25,7 +25,7 @@ function openUrl(url) {
 <template>
 	<div class="h-full w-full bg-[var(--bg-color)] rounded-lg screen">
 		<header class="h-[56px] flex items-center border-b-[1px] border-[var(--stroke)] border-solid">
-			<div class="nav-item mr-[48px]">maxwaraxe</div>
+			<div class="nav-item mr-[110px]">maxwaraxe</div>
 
 			<div @click="changeRoute('main')"
 				:class="[navName == 'main' ? 'nav-picked' : '', 'nav-item', 'border-l-[1px]', 'border-r-[1px]', 'border-[var(--stroke)]', 'border-solid']">

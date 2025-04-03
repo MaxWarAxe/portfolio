@@ -28,7 +28,7 @@ const SCALE = -50
 <template>
     <div class="flex items-center justify-center flex-row gap-36">
         <div class="flex flex-col gap-2">
-            <div>Привет, я</div>
+            <div>Привет 👋, я</div>
             <div class="text-6xl text-[var(--text-selected)]">Максим Киселев</div>
             <div class="text-[var(--indigo)]">> Front-end разработчик</div>
         </div>
