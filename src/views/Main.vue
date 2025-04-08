@@ -1,7 +1,9 @@
 <script setup>
 import { useParallax } from '@vueuse/core'
 import { ref, computed, watch } from 'vue'
+import { useMobileStore } from '@/stores/counter';
 
+const mobileStore = useMobileStore()
 const container = ref(null)
 const { tilt, roll, source } = useParallax(container)
 const tiltReal = ref(0)
@@ -26,23 +28,29 @@ const SCALE = -50
 </script>
 
 <template>
-    <div class="flex items-center justify-center flex-row gap-36">
-        <div class="flex flex-col gap-2">
+    <div class="flex items-center justify-evenly flex-row z-10 relative">
+        <img src="@/assets/icons/Green.svg" class="absolute h-full -z-1 opacity-50" />
+        <img src="@/assets/icons/Blue.svg" class="absolute h-full -z-1 opacity-50" />
+        <div class="flex flex-col gap-2 w-fit transition duration-300 max-md:text-center">
             <div>Привет 👋, я</div>
-            <div class="text-6xl text-[var(--text-selected)]">Максим Киселев</div>
+            <div class="text-6xl text-[var(--text-selected)] w-fit text-wrap">Максим Киселев</div>
             <div class="text-[var(--indigo)]">> Front-end разработчик</div>
         </div>
 
-        <div :style="{
+
+
+        <div v-if="!mobileStore.isTablet" :style="{
             transform: `
                 rotateX(${rollReal * SCALE}deg)
                 rotateY(${tiltReal * SCALE}deg)
             `
         }" class="photo" ref="container">
-
         </div>
 
+
+
     </div>
+
 </template>
 
 
@@ -59,5 +67,16 @@ const SCALE = -50
     border: 1px solid #cdcdcd;
     box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.25);
     background-image: url("/src/assets/static/photo2.jpg");
+}
+
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.1s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>

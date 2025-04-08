@@ -2,64 +2,69 @@
 import { computed } from 'vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useMobileStore } from '@/stores/counter';
+import { Menu, X } from 'lucide-vue-next';
+import { Motion } from 'motion-v'
+import { useNavigationStore } from '@/stores/navigation'
+import MobileNavigation from '@/views/MobileNavigation.vue'
+const mobileStore = useMobileStore()
+const navigationStore = useNavigationStore()
 const router = useRouter()
-const links = [
-	{ name: 'main', route: '/' },
-	{ name: 'about', route: 'about' },
-	{ name: 'projects', route: 'projects' },
-	{ name: 'contact', route: 'contact' },
-]
 
-function changeRoute(name: string) {
-	navName.value = name
-	router.push(links.filter((link) =>
-		link.name == navName.value
-	)[0].route)
-}
-const navName = ref('main')
+
+const menuOpened = ref(false)
+
 function openUrl(url) {
 	window.open(url, '_blank').focus()
 }
+
 </script>
 
 <template>
-	<div class="h-full w-full bg-[var(--bg-color)] rounded-lg screen">
+	<div class="h-full w-full bg-[var(--bg-color)] rounded-lg screen relative">
 		<header class="h-[56px] flex items-center border-b-[1px] border-[var(--stroke)] border-solid">
-			<div class="nav-item mr-[110px]">maxwaraxe</div>
+			<div class="nav-item mr-[111px]">maxwaraxe</div>
 
-			<div @click="changeRoute('main')"
-				:class="[navName == 'main' ? 'nav-picked' : '', 'nav-item', 'border-l-[1px]', 'border-r-[1px]', 'border-[var(--stroke)]', 'border-solid']">
-				главная
+			<div v-if="!mobileStore.isMobile" v-for="link in navigationStore.links"
+				@click="navigationStore.changeRoute(link.name, link.route)"
+				:class="[link.opened ? 'nav-picked' : '', 'nav-item', 'border-l-[1px]', link.name == 'contact' ? '' : 'border-r-[1px]', 'border-[var(--stroke)]', 'border-solid', link.name == 'contact' ? 'ml-auto' : '']">
+				{{ link.title }}
 			</div>
-			<div @click="changeRoute('about')"
-				:class="[navName == 'about' ? 'nav-picked' : '', 'nav-item', 'border-r-[1px]', 'border-[var(--stroke)]', 'border-solid']">
-				обо мне
-			</div>
-			<div @click="changeRoute('projects')"
-				:class="[navName == 'projects' ? 'nav-picked' : '', 'nav-item', 'mr-auto', 'border-r-[1px]', 'border-[var(--stroke)]', 'border-solid']">
-				проекты
-			</div>
-			<div @click="changeRoute('contact')"
-				:class="[navName == 'contact' ? 'nav-picked' : '', 'border-l-[1px]', 'nav-item', 'border-[var(--stroke)]', 'border-solid']">
-				contact me
-			</div>
+
+			<Motion :initial="{ scale: 0 }" :animate="{ rotate: 180, scale: 1 }" :transition="{
+				type: 'spring',
+				stiffness: 260,
+				damping: 20,
+				delay: 0.0,
+			}" @click="menuOpened = true" v-if="!menuOpened && mobileStore.isMobile" class="ml-auto mr-4">
+				<Menu class=""></Menu>
+			</Motion>
+			<Motion :initial="{ scale: 0 }" :animate="{ rotate: 180, scale: 1 }" :transition="{
+				type: 'spring',
+				stiffness: 260,
+				damping: 20,
+				delay: 0.0,
+			}" @click="menuOpened = false" v-if="menuOpened && mobileStore.isMobile" class="ml-auto mr-4">
+				<X class=""></X>
+			</Motion>
+
 		</header>
+		<MobileNavigation @change-route="menuOpened = false" v-if="menuOpened" class="grow" />
+		<RouterView v-else class="grow"></RouterView>
 
-		<RouterView class="grow"></RouterView>
-
-		<footer class="h-[56px] flex items-center border-t-[1px] border-[var(--stroke)] border-solid">
-			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid">соц. сети</div>
+		<footer class="h-[56px] flex items-center border-t-[1px]  border-[var(--stroke)] border-solid">
+			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid max-md:grow">соц. сети</div>
 			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid"
 				@click="openUrl('https://t.me/MaxNike')">
 				<i class="icon" :style="{ 'mask-image': `url('src/assets/icons/tg.svg')` }" />
 			</div>
-			<div class="nav-item border-r-[1px] mr-auto border-[var(--stroke)] border-solid"
+			<div class="nav-item border-r-[1px] mr-auto max-md:mr-0 border-[var(--stroke)] border-solid"
 				@click="openUrl('https://vk.com/maxxwellll')">
 				<i class="icon" :style="{ 'mask-image': `url('src/assets/icons/vk.svg')` }" />
 			</div>
 			<div class="nav-item border-l-[1px] border-[var(--stroke)] border-solid flex flex-row gap-4"
 				@click="openUrl('https://github.com/MaxWarAxe')">
-				@MaxWarAxe
+				<div v-if="!mobileStore.isMobile">@MaxWarAxe</div>
 				<i class="icon" :style="{ 'mask-image': `url('src/assets/icons/gh.svg')` }" />
 			</div>
 		</footer>
@@ -99,6 +104,11 @@ function openUrl(url) {
 
 .nav-item:hover {
 	color: white;
+}
+
+.nav-item:hover i {
+	color: white;
+	background-color: var(--text-selected);
 }
 
 .nav-picked {

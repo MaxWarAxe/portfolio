@@ -1,12 +1,16 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { useWindowSize } from '@vueuse/core'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+export const useMobileStore = defineStore('mobile', () => {
+  const { width, height } = useWindowSize()
+  const isMobile = computed(() => {
+    return width.value < 768
+  })
 
-  return { count, doubleCount, increment }
+  const isTablet = computed(() => {
+    return width.value < 1000
+  })
+
+  return { isTablet, isMobile }
 })
