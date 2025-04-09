@@ -1,4 +1,4 @@
-FROM node:stable-alpine as build-stage
+FROM node:lts-alpine as build-stage
 COPY package.json package.json
 RUN npm install
 COPY . .
