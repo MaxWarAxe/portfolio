@@ -2,19 +2,19 @@
 import { useNavigationStore } from '@/stores/navigation';
 const navigationStore = useNavigationStore()
 const emits = defineEmits(['changeRoute'])
-
+const opened = defineModel()
 function changeRoute(name: string, route: string) {
-    emits('changeRoute')
+    opened.value = false
     navigationStore.changeRoute(name, route)
 }
 </script>
 
 <template>
-    <div class="w-full h-full bg-[var(--bg-color)] flex flex-col pt-2 items-center">
+    <div v-if="opened" class="w-full h-full bg-[var(--bg-color)] flex flex-col pt-2 items-center">
         <div class="mb-4">навигация</div>
         <div v-for="link in navigationStore.links" @click="changeRoute(link.name, link.route)"
             :class="[link.opened ? 'nav-picked' : '', 'w-full', 'p-2', 'items-center', 'flex-col', 'flex', 'nav-item', link.name == 'contact' ? 'border-b-[1px]' : '', 'border-t-[1px]', 'border-[var(--stroke)]', 'border-solid']">
-            {{ link.title }}
+            ✨{{ link.title }}
         </div>
     </div>
 </template>

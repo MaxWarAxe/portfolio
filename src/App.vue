@@ -3,15 +3,17 @@ import MainScreen from '@/views/MainScreen.vue'
 </script>
 
 <template>
-	<div class="app">
-		<MainScreen />
+	<div class="app flex">
+		<MainScreen class="flex grow" />
 	</div>
 </template>
 
 <style scoped>
 .app {
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
+	max-height: auto;
 	display: flex;
 	padding: 5%;
 }

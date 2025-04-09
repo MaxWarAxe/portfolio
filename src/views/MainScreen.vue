@@ -21,7 +21,7 @@ function openUrl(url) {
 </script>
 
 <template>
-	<div class="h-full w-full bg-[var(--bg-color)] rounded-lg screen relative">
+	<div class="w-full bg-[var(--bg-color)] rounded-lg screen relative">
 		<header class="h-[56px] flex items-center border-b-[1px] border-[var(--stroke)] border-solid">
 			<div class="nav-item mr-[111px]">maxwaraxe</div>
 
@@ -49,8 +49,8 @@ function openUrl(url) {
 			</Motion>
 
 		</header>
-		<MobileNavigation @change-route="menuOpened = false" v-if="menuOpened" class="grow" />
-		<RouterView v-else class="grow"></RouterView>
+		<MobileNavigation v-model="menuOpened" v-if="menuOpened && mobileStore.isMobile" class="grow" />
+		<RouterView v-show="!menuOpened" class="grow"></RouterView>
 
 		<footer class="h-[56px] flex items-center border-t-[1px]  border-[var(--stroke)] border-solid">
 			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid max-md:grow">соц. сети</div>
