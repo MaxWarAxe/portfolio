@@ -40,7 +40,12 @@ function handlePan(_: PointerEvent, info: PanInfo) {
 }
 
 function openInNewTab() {
-    window.open(props.url, '_blank').focus();
+    const url = props.url;
+    if (url) {
+        const newTab = window.open(url, '_blank');
+        newTab?.focus();
+    }
+
 }
 
 function handlePanEnd() {
