@@ -2,7 +2,7 @@
     <div
         class="w-[200px] select-none p-4 h-[200px] relative  glass rounded-lg flex flex-col items-center justify-center">
         <Motion :transform-template="template" :animate="controls" @pan="handlePan" @pan-end="handlePanEnd"
-            :style="{ 'background-image': 'url(' + props.image + ')' }" class="card w-full h-full mb-4">
+            :style="{ 'backgroundImage': 'url(' + props.image + ')' }" class="card w-full h-full mb-4">
 
         </Motion>
         <h2 class="text-xl font-bold absolute bottom-0">{{ name }}</h2>
