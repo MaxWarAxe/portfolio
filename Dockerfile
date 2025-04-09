@@ -1,7 +1,6 @@
 FROM node:latest as build-stage
 COPY package.json package.json
 RUN npm install
-RUN npm install --save-dev @types/react
 COPY . .
 RUN npm run build
 
