@@ -1,15 +1,15 @@
 <template>
-    <div class="w-[407px] select-none h-[364px] relative  flex flex-col">
+    <div class="w-[407px] max-md:w-[300px] select-none h-[364px] relative  flex flex-col">
         <div class="text-blue-500  text-xl flex gap-2 w-full rounded-2xl">
             <div class="w-max">Проект {{ props.index }}</div>
             <div class="text-[var(--text)] text-xl flex gap-2">// {{ props.name }}</div>
         </div>
         <div
-            class="w-[407px] rounded-2xl h-[324px] select-none  relative  glass flex flex-col items-center justify-center">
+            class="w-[407px] max-md:w-[300px] rounded-2xl h-[324px] select-none  relative  glass flex flex-col items-center justify-center">
 
             <Dialog>
                 <DialogTrigger
-                    class="w-[407px] rounded-2xl h-[324px] select-none  relative  glass flex flex-col items-center justify-center">
+                    class="w-[407px] max-md:w-[300px]  rounded-2xl h-[324px] select-none  relative  glass flex flex-col items-center justify-center">
                     <div :style="{ 'background-image': 'url(' + props.image + ')' }"
                         class="image hover:opacity-50 cursor-pointer w-full h-full rounded-t-2xl flex relative">
                         <MonitorPlay
