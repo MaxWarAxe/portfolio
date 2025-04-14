@@ -45,24 +45,19 @@
             </nav>
             <div class="flex flex-wrap gap-4 p-4 max-md:items-center max-md:justify-center">
                 <ProjectCard v-if="opened.includes('vue') || opened.includes('spring')" name="ИС кинотеатра"
-                    image="@/assets/static/cinema.png"
+                    image="/cinema.png"
                     description="Cистема позволяет создавать сеансы, добавлять фильмы, смотреть описание фильма, покупать билеты"
-                    url="https://github.com/MaxWarAxe/cinema-web-site" video="@/assets/static/cinema_vid.mp4"
-                    :index="0" />
+                    url="https://github.com/MaxWarAxe/cinema-web-site" video="/cinema_vid.mp4" :index="0" />
                 <ProjectCard v-if="opened.includes('vue') || opened.includes('spring')" name="ИС мероприятий"
-                    image="@/assets/static/events.png"
+                    image="/events.png"
                     description="Система объединяет в себе чат, создание и контроль проведения мероприятий, добавление мероприятий в календарь"
-                    url="https://gitlab.com/makskriper9/event-web-site" video="@/assets/static/events_vid.mp4"
-                    :index="0" />
-                <ProjectCard v-if="opened.includes('godot')" name="Gunforce Ultimate 2.0"
-                    image="@/assets/static/gunforce.png"
+                    url="https://gitlab.com/makskriper9/event-web-site" video="/events_vid.mp4" :index="0" />
+                <ProjectCard v-if="opened.includes('godot')" name="Gunforce Ultimate 2.0" image="/gunforce.png"
                     description="Многопользовательская игра в режиме deathmatch, все играют за оружие, которое летает по карте от своей отдачи"
-                    url="https://gitlab.com/makskriper9/event-web-site" video="@/assets/static/gunforce_vid.mp4"
-                    :index="0" />
-                <ProjectCard v-if="opened.includes('vue')" name="Канбан доска" image="@/assets/static/kanban.png"
+                    url="https://gitlab.com/makskriper9/event-web-site" video="/gunforce_vid.mp4" :index="0" />
+                <ProjectCard v-if="opened.includes('vue')" name="Канбан доска" image="/kanban.png"
                     description="Доска на подобие trello, позволяет создавать задачи, перемещать их между колонками, добавлять и прикреплять исполнителей"
-                    url="https://github.com/MaxWarAxe/kanban-website-practice" video="@/assets/static/kanban_vid.mp4"
-                    :index="0" />
+                    url="https://github.com/MaxWarAxe/kanban-website-practice" video="/kanban_vid.mp4" :index="0" />
             </div>
 
         </div>
@@ -80,10 +75,10 @@ import { Motion } from 'motion-v'
 import { useRouter } from 'vue-router';
 import { useMobileStore } from '@/stores/counter';
 import ProjectCard from '@/components/ProjectCard.vue';
-import BioPage from './BioPage.vue';
-import InterestsPage from './InterestsPage.vue';
-import EducationPage from './EducationPage.vue';
-import TechnologiesPage from './TechnologiesPage.vue';
+import BioPage from '../src/views/BioPage.vue';
+import InterestsPage from '../src/views/InterestsPage.vue';
+import EducationPage from '../src/views/EducationPage.vue';
+import TechnologiesPage from '../src/views/TechnologiesPage.vue';
 import type { Variant } from 'motion-v'
 import { computed } from 'vue';
 const mobileStore = useMobileStore()

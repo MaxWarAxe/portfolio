@@ -6,10 +6,10 @@ export const useNavigationStore = defineStore('nav', () => {
   const router = useRouter()
 
   const links = ref([
-    { name: '/', title: 'главная', route: '/', opened: true },
-    { name: '/about', title: 'обо мне', route: '/about', opened: false },
-    { name: '/projects', title: 'проекты', route: '/projects', opened: false },
-    { name: '/contact', title: 'contact me :)', route: '/contact', opened: false },
+    { name: 'main', title: 'главная', route: '/', opened: true },
+    { name: 'about', title: 'обо мне', route: '/about', opened: false },
+    { name: 'projects', title: 'проекты', route: '/projects', opened: false },
+    { name: 'contact', title: 'contact me :)', route: '/contact', opened: false },
   ])
   const lastLink = ref(links.value[0])
 

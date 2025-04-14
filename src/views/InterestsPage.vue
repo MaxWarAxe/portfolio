@@ -38,7 +38,7 @@
             <p class="mb-4 text-lg">Здесь я впервые пробую себя в продуктовом программировании и в роли фронтенд
                 разработчика на фреймворке vuejs, знакомился с технологией по ходу дела и мне это очень понравилось</p>
             <div class="flex flex-col items-center justify-center w-full">
-                <VideoPlayer :fluid="true" class="w-fit" controls src="src/assets/static/first vidos.mp4"></VideoPlayer>
+                <VideoPlayer :fluid="true" class="w-fit" controls src="/first vidos.mp4"></VideoPlayer>
                 <img src="@/assets/static/lstu 2024 sidim perdim 4.jpg" class="" />
                 <img src="@/assets/static/lstu 2024 wow.jpg" class="" />
                 <img src="@/assets/static/lstu 2024 hackaton vistup.jpg" class="rounded-b-2xl" />
@@ -58,8 +58,8 @@
                 мероприятия организовывалось ответственно и с душой</p>
             <p class="mb-4 text-lg">Автор презентации и дизайна - Данил Данилов @Vuxkhiff</p>
             <div class="flex flex-col items-center justify-center w-full">
-                <VideoPlayer poster="src/assets/static/zephyr.png" :fluid="true" class="w-fit" controls
-                    src="src/assets/static/zephyr vid.mp4"></VideoPlayer>
+                <VideoPlayer poster="/zephyr.png" :fluid="true" class="w-fit" controls src="/zephyr vid.mp4">
+                </VideoPlayer>
                 <img src="@/assets/static/obu 2024 obsuzhdaem.jpg" class="" />
                 <img src="@/assets/static/obu 2024 sidim obsuzhdaem.jpg" class="" />
                 <img src="@/assets/static/obu 2024 stoim.jpg" class="" />
@@ -82,8 +82,8 @@
             <p class="mb-4 text-lg text-blue-500">Финал 14 место</p>
             <div class="flex flex-col items-center justify-center w-full">
 
-                <VideoPlayer poster="src/assets/static/sportix vibe.png" :fluid="true" class="w-fit" controls
-                    src="src/assets/static/screen-cast-sportix.mp4"></VideoPlayer>
+                <VideoPlayer poster="/sportix vibe.png" :fluid="true" class="w-fit" controls
+                    src="/screen-cast-sportix.mp4"></VideoPlayer>
 
                 <img src="@/assets/static/final 2024 champ.png" class="rounded-b-2xl" />
             </div>
@@ -102,8 +102,8 @@
                 результатом.</p>
             <p class="mb-4 text-lg text-blue-500">2 место</p>
             <div class="flex flex-col items-center justify-center w-full">
-                <VideoPlayer poster="src/assets/static/sportix vibe 2.png" :fluid="true" class="w-fit" controls
-                    src="src/assets/static/kachok.mp4"></VideoPlayer>
+                <VideoPlayer poster="/sportix vibe 2.png" :fluid="true" class="w-fit" controls src="/kachok.mp4">
+                </VideoPlayer>
                 <img src="@/assets/static/lstu 2025 stoim.jpg" class="" />
                 <img src="@/assets/static/lstu 2025 2 place.jpg" class="rounded-b-2xl" />
             </div>
