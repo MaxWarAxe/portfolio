@@ -56,16 +56,16 @@ function openUrl(url) {
 			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid max-md:grow">соц. сети</div>
 			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid"
 				@click="openUrl('https://t.me/MaxNike')">
-				<i class="icon" :style="{ 'mask-image': `url('src/assets/icons/tg.svg')` }" />
+				<i class="icon" :style="{ 'mask-image': `url('/tg.svg')` }" />
 			</div>
 			<div class="nav-item border-r-[1px] mr-auto max-md:mr-0 border-[var(--stroke)] border-solid"
 				@click="openUrl('https://vk.com/maxxwellll')">
-				<i class="icon" :style="{ 'mask-image': `url('src/assets/icons/vk.svg')` }" />
+				<i class="icon" :style="{ 'mask-image': `url('/vk.svg')` }" />
 			</div>
 			<div class="nav-item border-l-[1px] border-[var(--stroke)] border-solid flex flex-row gap-4"
 				@click="openUrl('https://github.com/MaxWarAxe')">
 				<div v-if="!mobileStore.isMobile">@MaxWarAxe</div>
-				<i class="icon" :style="{ 'mask-image': `url('src/assets/icons/gh.svg')` }" />
+				<i class="icon" :style="{ 'mask-image': `url('/gh.svg')` }" />
 			</div>
 		</footer>
 	</div>
