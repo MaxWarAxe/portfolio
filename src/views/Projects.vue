@@ -75,10 +75,6 @@ import { Motion } from 'motion-v'
 import { useRouter } from 'vue-router';
 import { useMobileStore } from '@/stores/counter';
 import ProjectCard from '@/components/ProjectCard.vue';
-import BioPage from '../src/views/BioPage.vue';
-import InterestsPage from '../src/views/InterestsPage.vue';
-import EducationPage from '../src/views/EducationPage.vue';
-import TechnologiesPage from '../src/views/TechnologiesPage.vue';
 import type { Variant } from 'motion-v'
 import { computed } from 'vue';
 const mobileStore = useMobileStore()
@@ -96,12 +92,7 @@ const variants: Record<string, Variant | ((custom: number) => Variant)> = {
 }
 
 const personalInfoOpened = ref(true)
-const contactOpened = ref(true)
 
-const bioOpened = ref(false)
-const interestsOpened = ref(false)
-const educationOpened = ref(false)
-const workExperienceOpened = ref(false)
 
 const contacts = ref([
     { name: 'makskriper9@gmail.com' },
