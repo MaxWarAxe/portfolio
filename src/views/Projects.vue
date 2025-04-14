@@ -51,13 +51,13 @@
                 <ProjectCard v-if="opened.includes('vue') || opened.includes('spring')" name="ИС мероприятий"
                     image="/events.png"
                     description="Система объединяет в себе чат, создание и контроль проведения мероприятий, добавление мероприятий в календарь"
-                    url="https://gitlab.com/makskriper9/event-web-site" video="/events_vid.mp4" :index="0" />
+                    url="https://gitlab.com/makskriper9/event-web-site" video="/events_vid.mp4" :index="1" />
                 <ProjectCard v-if="opened.includes('godot')" name="Gunforce Ultimate 2.0" image="/gunforce.png"
                     description="Многопользовательская игра в режиме deathmatch, все играют за оружие, которое летает по карте от своей отдачи"
-                    url="https://gitlab.com/makskriper9/event-web-site" video="/gunforce_vid.mp4" :index="0" />
+                    url="https://gitlab.com/makskriper9/event-web-site" video="/gunforce_vid.mp4" :index="2" />
                 <ProjectCard v-if="opened.includes('vue')" name="Канбан доска" image="/kanban.png"
                     description="Доска на подобие trello, позволяет создавать задачи, перемещать их между колонками, добавлять и прикреплять исполнителей"
-                    url="https://github.com/MaxWarAxe/kanban-website-practice" video="/kanban_vid.mp4" :index="0" />
+                    url="https://github.com/MaxWarAxe/kanban-website-practice" video="/kanban_vid.mp4" :index="3" />
             </div>
 
         </div>
