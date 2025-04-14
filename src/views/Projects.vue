@@ -45,23 +45,23 @@
             </nav>
             <div class="flex flex-wrap gap-4 p-4 max-md:items-center max-md:justify-center">
                 <ProjectCard v-if="opened.includes('vue') || opened.includes('spring')" name="ИС кинотеатра"
-                    image="src/assets/static/cinema.png"
+                    image="@/assets/static/cinema.png"
                     description="Cистема позволяет создавать сеансы, добавлять фильмы, смотреть описание фильма, покупать билеты"
-                    url="https://github.com/MaxWarAxe/cinema-web-site" video="src/assets/static/cinema_vid.mp4"
+                    url="https://github.com/MaxWarAxe/cinema-web-site" video="@/assets/static/cinema_vid.mp4"
                     :index="0" />
                 <ProjectCard v-if="opened.includes('vue') || opened.includes('spring')" name="ИС мероприятий"
-                    image="src/assets/static/events.png"
+                    image="@/assets/static/events.png"
                     description="Система объединяет в себе чат, создание и контроль проведения мероприятий, добавление мероприятий в календарь"
-                    url="https://gitlab.com/makskriper9/event-web-site" video="src/assets/static/events_vid.mp4"
+                    url="https://gitlab.com/makskriper9/event-web-site" video="@/assets/static/events_vid.mp4"
                     :index="0" />
                 <ProjectCard v-if="opened.includes('godot')" name="Gunforce Ultimate 2.0"
-                    image="src/assets/static/gunforce.png"
+                    image="@/assets/static/gunforce.png"
                     description="Многопользовательская игра в режиме deathmatch, все играют за оружие, которое летает по карте от своей отдачи"
-                    url="https://gitlab.com/makskriper9/event-web-site" video="src/assets/static/gunforce_vid.mp4"
+                    url="https://gitlab.com/makskriper9/event-web-site" video="@/assets/static/gunforce_vid.mp4"
                     :index="0" />
-                <ProjectCard v-if="opened.includes('vue')" name="Канбан доска" image="src/assets/static/kanban.png"
+                <ProjectCard v-if="opened.includes('vue')" name="Канбан доска" image="@/assets/static/kanban.png"
                     description="Доска на подобие trello, позволяет создавать задачи, перемещать их между колонками, добавлять и прикреплять исполнителей"
-                    url="https://github.com/MaxWarAxe/kanban-website-practice" video="src/assets/static/kanban_vid.mp4"
+                    url="https://github.com/MaxWarAxe/kanban-website-practice" video="@/assets/static/kanban_vid.mp4"
                     :index="0" />
             </div>
 
