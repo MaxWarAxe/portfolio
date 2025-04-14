@@ -56,16 +56,16 @@ function openUrl(url) {
 			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid max-md:grow">соц. сети</div>
 			<div class="nav-item border-r-[1px] border-[var(--stroke)] border-solid"
 				@click="openUrl('https://t.me/MaxNike')">
-				<i class="icon" :style="{ 'mask-image': `url('/tg.svg')` }" />
+				<img src="/tg.svg" class="icon" />
 			</div>
 			<div class="nav-item border-r-[1px] mr-auto max-md:mr-0 border-[var(--stroke)] border-solid"
 				@click="openUrl('https://vk.com/maxxwellll')">
-				<i class="icon" :style="{ 'mask-image': `url('/vk.svg')` }" />
+				<img src="/vk.svg" class="icon" />
 			</div>
 			<div class="nav-item border-l-[1px] border-[var(--stroke)] border-solid flex flex-row gap-4"
 				@click="openUrl('https://github.com/MaxWarAxe')">
 				<div v-if="!mobileStore.isMobile">@MaxWarAxe</div>
-				<i class="icon" :style="{ 'mask-image': `url('/gh.svg')` }" />
+				<img src="/gh.svg" class="icon" />
 			</div>
 		</footer>
 	</div>
@@ -80,17 +80,16 @@ function openUrl(url) {
 }
 
 .icon {
-	fill: red;
-	color: red;
+	border-radius: 100%;
 	width: 24px;
 	height: 24px;
 	mask-size: cover;
-	background-color: var(--text);
+	/* background-color: var(--text); */
 	transition: 0.2s;
 }
 
 .icon:hover {
-	background-color: var(--text-selected);
+	background-color: var(--bg-color);
 }
 
 .nav-item {
@@ -106,7 +105,7 @@ function openUrl(url) {
 	color: white;
 }
 
-.nav-item:hover i {
+.nav-item:hover img {
 	color: white;
 	background-color: var(--text-selected);
 }
