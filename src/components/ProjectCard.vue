@@ -6,16 +6,32 @@
         </div>
         <div
             class="w-[407px] rounded-2xl h-[324px] select-none  relative  glass flex flex-col items-center justify-center">
-            <div :style="{ 'background-image': 'url(' + props.image + ')' }" class="image w-full h-full rounded-t-2xl">
 
-            </div>
+            <Dialog>
+                <DialogTrigger
+                    class="w-[407px] rounded-2xl h-[324px] select-none  relative  glass flex flex-col items-center justify-center">
+                    <div :style="{ 'background-image': 'url(' + props.image + ')' }"
+                        class="image hover:opacity-50 cursor-pointer w-full h-full rounded-t-2xl flex relative">
+                        <MonitorPlay
+                            class="grow transition duration-200 opacity-0 max-md:opacity-100 hover:opacity-100 w-full h-full absolute">
+                        </MonitorPlay>
+                    </div>
+                </DialogTrigger>
+                <DialogContent class="min-w-3/4 bg-[var(--bg-color)]">
+                    <DialogHeader>
+                        <DialogDescription>
+                            <VideoPlayer :fluid="true" class="w-fit" controls :src="props.video"></VideoPlayer>
+                        </DialogDescription>
+                    </DialogHeader>
+                </DialogContent>
+            </Dialog>
             <h2 class=" bg-[var(--back-bg)] w-full relative h-[200px] p-4">
                 {{ props.description }}
-
             </h2>
-            <div class="rounded-b-2xl bg-[var(--back-bg)] w-full relative p-4">
+            <div class="rounded-b-2xl bg-[var(--back-bg)] w-full relative p-5">
                 <button @click="openInNewTab"
-                    class="bg-[#45556C] cursor-pointer rounded-sm p-[5px] text-white absolute bottom-4 left-4">посмотреть</button>
+                    class="bg-[#45556C] cursor-pointer rounded-sm p-[5px] text-white absolute bottom-4 left-4">репозиторий</button>
+
             </div>
         </div>
 
@@ -26,6 +42,23 @@
 <script setup lang="ts">
 import { Motion, useAnimationControls } from 'motion-v'
 import type { PanInfo, TransformProperties } from 'motion-v'
+import { ref } from 'vue'
+import { useMobileStore } from '@/stores/counter';
+import { MonitorPlay } from 'lucide-vue-next';
+import { VideoPlayer } from '@videojs-player/vue'
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog'
+
+const opened = ref(false)
+
+const mobileStore = useMobileStore()
 
 function template({ rotateY, rotateX }: TransformProperties) {
     return `perspective(500px) rotateX(${rotateX}) rotateY(${rotateY})`
@@ -60,10 +93,9 @@ const props = defineProps(
         index: Number,
         image: String,
         url: String,
+        video: String,
         description: String,
     })
-
-
 </script>
 
 <style scoped>

@@ -15,6 +15,7 @@ import TechCard from '@/components/TechCard.vue';
         <TechCard image="src/assets/static/java.png" name="Java"></TechCard>
         <TechCard image="src/assets/static/js.png" name="JS"></TechCard>
         <TechCard image="src/assets/static/ts.png" name="TS"></TechCard>
+        <TechCard image="src/assets/static/godot.png" name="Godot"></TechCard>
         <img src="@/assets/icons/Green.svg" draggable="false" class="absolute select-none   opacity-40  -z-1  left-0" />
         <img src="@/assets/icons/Blue.svg" draggable="false" class="absolute select-none    opacity-40 -z-1  right-0" />
     </div>

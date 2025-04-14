@@ -53,7 +53,7 @@
             <nav class=" w-full flex flex-wrap border-b-[1px] border-solid border-[var(--stroke)]">
                 <div v-for="folder in infoFolders">
                     <div v-if="folder.opened" @click="selectFolder(folder)" :key="folder.name"
-                        class="flex cursor-pointer h-[48px] gap-2 flex-row w-fit border-r-[1px] border-b-[1px] border-t-[1px]  border-solid border-[var(--stroke)] items-center justify-between px-4"
+                        class="flex cursor-pointer h-[48px] gap-2 flex-row w-fit border-r-[1px]   border-solid border-[var(--stroke)] items-center justify-between px-4"
                         :style="{ 'color': selectedFolder == folder.name ? 'white' : '' }">
 
                         <div>{{ folder.name }}</div>
@@ -115,9 +115,10 @@ const infoFolders = ref([
     {
         name: 'биография', route: '/bio', opened: false, selected: false
     },
-    { name: 'интересы', route: '/interests', opened: false, selected: false },
+
     { name: 'образование', route: '/education', opened: false, selected: false },
     { name: 'технологии', route: '/technologies', opened: false, selected: false },
+    { name: 'интересы', route: '/interests', opened: false, selected: false },
 ])
 
 function selectFolder(folder) {
@@ -128,9 +129,9 @@ function selectFolder(folder) {
         selectedFolder.value = ''
     }
 }
-if (!mobileStore.isMobile) {
-    openFolder(infoFolders.value[3])
-}
+
+openFolder(infoFolders.value[3])
+
 if (mobileStore.isMobile) {
     personalInfoOpened.value = false
     contactOpened.value = false
