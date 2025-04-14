@@ -41,15 +41,4 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach(async (to, from, next) => {
-  await Promise.all(
-    to.matched.map((route) => {
-      if (typeof route.components?.default === 'function') {
-        return route.components.default()
-      }
-    }),
-  )
-  next()
-})
-
 export default router
